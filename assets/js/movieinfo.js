@@ -16,7 +16,7 @@ const getMovieInfo = async () =>{
         callAPI(MOVIE_URL, "GET"),
         callAPI(CAST_URL, "GET")
     ];
-    let  [movieObj, castcrewObj] = await Promise.all(arrAPI);
+    let [movieObj, castcrewObj] = await Promise.all(arrAPI);
 
     figcaption.innerHTML = `<div>
                                 <img src="https://image.tmdb.org/t/p/w342/${movieObj.production_companies[0].logo_path}" 
@@ -34,7 +34,7 @@ const getMovieInfo = async () =>{
                                         ${movieObj.genres.map(gen =>` <span data-genCode= "${gen.id}">${gen.name}</span>`).join(", ")}
                                     </li>
                                 </ul>
-                                <p> ${movieObj.overview}
+                                <p class="singlemovieOverview"> ${movieObj.overview}
                                 </p>
                                 <p class="staring">
                                     <strong> Staring : ${castcrewObj.cast.slice(0, 5).map(c => c.name || c.original_name || '').join(", ")}</strong>

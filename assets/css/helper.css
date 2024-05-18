@@ -80,6 +80,15 @@ ul{
 
 @media all and (max-width:768px) {
 	.hide{
-		display: none;
+		height:33px;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+		overflow:hidden;
+	}
+
+	.singlemovieOverview{
+		height: 50px;
+		overflow: scroll;
+		
 	}
 }
