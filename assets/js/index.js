@@ -1,11 +1,11 @@
-let cl = console.log;
 
 
-const trendingMovies = document.getElementById("trendingMovies");
-const BASE_URL = `https://api.themoviedb.org/3`;
-const API_KEY = `58dad1cb0c036bf4185652097c6dda42`;
-const IMG_URL = `https://image.tmdb.org/t/p`;
-const TRENDING_URL = `${BASE_URL}/trending/all/week?api_key=${API_KEY}`;
+ const trendingMovies = document.getElementById("trendingMovies");
+ 
+// const BASE_URL = `https://api.themoviedb.org/3`;
+// const API_KEY = `58dad1cb0c036bf4185652097c6dda42`;
+// const IMG_URL = `https://image.tmdb.org/t/p`;
+// const TRENDING_URL = `${BASE_URL}/trending/all/week?api_key=${API_KEY}`;
 
 const slider = () =>{
     $('#trendingMovies').owlCarousel({
@@ -29,12 +29,14 @@ const mainMoviesTemplating = (arrofMovies) =>{
     trendingMovies.innerHTML = arrofMovies.map(movie =>{
         return `<div class="item">
                     <figure class="movieCard mb-0">
-                        <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path || movie.poster_path}" alt="">
+                        <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path || movie.poster_path}" 
+                        alt="${movie.original_title || movie.title || movie.original_name}" 
+                        title="${movie.original_title || movie.title || movie.original_name}">
                         <figcaption>
                             <h3 class="display-3">
                                 ${movie.original_title || movie.title || movie.original_name}
                             </h3>
-                            <em class="my-5">
+                            <em class="my-5 hide">
                                 ${movie.overview}
                             </em>
                             <p>
@@ -58,16 +60,16 @@ const loadQparams = (ele) =>{
     window.location.href = movieRedirectUrl;
 }
 
-const callAPI = async (apiUrl, methodName, msgBody) =>{
-    msgBody = msgBody ? JSON.stringify(msgBody) : null;
-    let res = await fetch(apiUrl, {
-        method : methodName,
-        body : msgBody,
+// const callAPI = async (apiUrl, methodName, msgBody) =>{
+//     msgBody = msgBody ? JSON.stringify(msgBody) : null;
+//     let res = await fetch(apiUrl, {
+//         method : methodName,
+//         body : msgBody,
 
-    });
+//     });
 
-    return res.json();
-}
+//     return res.json();
+// }
 
 const getData = async() =>{
     let res = await callAPI(TRENDING_URL, "GET")

@@ -4,6 +4,15 @@
 	box-sizing:border-box;
 }
 
+ul{
+	list-style: none;
+}
+
+.singleMoviecontainer{
+	width: 90%;
+	margin: 0 auto;
+}
+
 .btn{
 	background-color: #e6e6e6;
 	background-image: linear-gradient(180deg, #e6e6e6, #ddd);
@@ -67,4 +76,10 @@
 .hvr-radial-out:focus:before, 
 .hvr-radial-out:active:before {
 	transform: scale(2);
+}
+
+@media all and (max-width:768px) {
+	.hide{
+		display: none;
+	}
 }

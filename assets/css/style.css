@@ -1,6 +1,7 @@
 :root{
 	--colorPrimary : #181818;
 	--colorWhite : #fff;
+	--text-grey-color : #a3a3aa;
 }
 
 body{
@@ -60,3 +61,4 @@ body{
 .movieCard h3:active{
 	transform: skew(25deg);
 }
+
